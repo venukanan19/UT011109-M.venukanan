@@ -247,6 +247,7 @@
 //}
 
 using System;
+using System.Collections.Generic;
 
 namespace BankingApp
 {
@@ -255,6 +256,8 @@ namespace BankingApp
         public string HolderName;
         public int AccountNumber;
         private decimal Balance;
+
+        private List<string> Transactions = new List<string>();
 
         public BankAccount(string holderName, int accountNumber, decimal balance)
         {
@@ -276,14 +279,12 @@ namespace BankingApp
             Console.WriteLine("Balance: " + Balance);
         }
 
-        public void Deposit()
+        public void Deposit(decimal deposit)
         {
-            Console.Write("Enter deposit amount: ");
-            decimal deposit = decimal.Parse(Console.ReadLine());
-
             if (deposit > 0)
             {
                 Balance += deposit;
+                Transactions.Add($"Deposited: {deposit} | Date: {DateTime.Now:dd/MM/yyyy HH:mm:ss}");
                 Console.WriteLine("Amount deposited successfully.");
                 Console.WriteLine("Updated Balance: " + Balance);
             }
@@ -298,12 +299,26 @@ namespace BankingApp
             if (amount > 0 && amount <= Balance)
             {
                 Balance -= amount;
-                Console.WriteLine("Remaining balance: " + Balance);
+                Transactions.Add($"Withdrawn: {amount} | Date: {DateTime.Now:dd/MM/yyyy HH:mm:ss}");
                 return true;
+            }
+            return false;
+        }
+
+        public void ShowTransactions()
+        {
+            if (Transactions.Count == 0)
+            {
+                Console.WriteLine("No transactions yet.");
             }
             else
             {
-                return false;
+                Console.WriteLine("Transaction History:");
+
+                foreach (string t in Transactions)
+                {
+                    Console.WriteLine(t);
+                }
             }
         }
     }
@@ -326,7 +341,8 @@ namespace BankingApp
             Console.WriteLine("2. Check Balance");
             Console.WriteLine("3. Deposit");
             Console.WriteLine("4. Withdraw");
-            Console.WriteLine("5. Exit");
+            Console.WriteLine("5. Show Transactions");
+            Console.WriteLine("6. Exit");
             Console.WriteLine("==========================");
         }
 
@@ -338,10 +354,20 @@ namespace BankingApp
             string holderName = Console.ReadLine();
 
             Console.Write("Enter Account Number: ");
-            int accountNumber = Convert.ToInt32(Console.ReadLine());
+            int accountNumber;
+
+            while (!int.TryParse(Console.ReadLine(), out accountNumber))
+            {
+                Console.WriteLine("Invalid number. Enter again:");
+            }
 
             Console.Write("Enter Account Balance: ");
-            decimal balance = decimal.Parse(Console.ReadLine());
+            decimal balance;
+
+            while (!decimal.TryParse(Console.ReadLine(), out balance))
+            {
+                Console.WriteLine("Invalid amount. Enter again:");
+            }
 
             BankAccount account = new BankAccount(holderName, accountNumber, balance);
 
@@ -352,7 +378,12 @@ namespace BankingApp
                 DisplayMenu();
 
                 Console.Write("Enter your choice: ");
-                int selectedOption = Convert.ToInt32(Console.ReadLine());
+                int selectedOption;
+
+                while (!int.TryParse(Console.ReadLine(), out selectedOption))
+                {
+                    Console.WriteLine("Invalid choice. Enter again:");
+                }
 
                 switch (selectedOption)
                 {
@@ -365,28 +396,37 @@ namespace BankingApp
                         break;
 
                     case 3:
-                        account.Deposit();
+                        Console.Write("Enter deposit amount: ");
+                        decimal deposit;
+
+                        while (!decimal.TryParse(Console.ReadLine(), out deposit))
+                        {
+                            Console.WriteLine("Invalid amount. Enter again:");
+                        }
+
+                        account.Deposit(deposit);
                         break;
 
                     case 4:
+                        Console.Write("Enter withdraw amount: ");
+                        decimal amount;
+
+                        while (!decimal.TryParse(Console.ReadLine(), out amount))
                         {
-                            Console.Write("Enter withdraw amount: ");
-                            decimal amount = decimal.Parse(Console.ReadLine());
-
-                            bool result = account.Withdraw(amount);
-
-                            if (result)
-                            {
-                                Console.WriteLine("Withdrawal completed.");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Insufficient balance.");
-                            }
-                            break;
+                            Console.WriteLine("Invalid amount. Enter again:");
                         }
 
+                        if (account.Withdraw(amount))
+                            Console.WriteLine("Withdrawal completed.");
+                        else
+                            Console.WriteLine("Insufficient balance.");
+                        break;
+
                     case 5:
+                        account.ShowTransactions();
+                        break;
+
+                    case 6:
                         Console.WriteLine("Exiting...");
                         exit = true;
                         break;
