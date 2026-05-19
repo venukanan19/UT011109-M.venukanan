@@ -42,3 +42,18 @@ C:\Users\venum\Downloads\New folder (2)\UT011109-M.venukanan\BankingApp\BankingA
 C:\Users\venum\Downloads\New folder (2)\UT011109-M.venukanan\BankingApp\BankingApp\obj\Debug\net8.0\BankingApp.pdb
 C:\Users\venum\Downloads\New folder (2)\UT011109-M.venukanan\BankingApp\BankingApp\obj\Debug\net8.0\BankingApp.genruntimeconfig.cache
 C:\Users\venum\Downloads\New folder (2)\UT011109-M.venukanan\BankingApp\BankingApp\obj\Debug\net8.0\ref\BankingApp.dll
+Z:\New folder\UT011109-M.venukanan\BankingApp\BankingApp\bin\Debug\net8.0\BankingApp.exe
+Z:\New folder\UT011109-M.venukanan\BankingApp\BankingApp\bin\Debug\net8.0\BankingApp.deps.json
+Z:\New folder\UT011109-M.venukanan\BankingApp\BankingApp\bin\Debug\net8.0\BankingApp.runtimeconfig.json
+Z:\New folder\UT011109-M.venukanan\BankingApp\BankingApp\bin\Debug\net8.0\BankingApp.dll
+Z:\New folder\UT011109-M.venukanan\BankingApp\BankingApp\bin\Debug\net8.0\BankingApp.pdb
+Z:\New folder\UT011109-M.venukanan\BankingApp\BankingApp\obj\Debug\net8.0\BankingApp.GeneratedMSBuildEditorConfig.editorconfig
+Z:\New folder\UT011109-M.venukanan\BankingApp\BankingApp\obj\Debug\net8.0\BankingApp.AssemblyInfoInputs.cache
+Z:\New folder\UT011109-M.venukanan\BankingApp\BankingApp\obj\Debug\net8.0\BankingApp.AssemblyInfo.cs
+Z:\New folder\UT011109-M.venukanan\BankingApp\BankingApp\obj\Debug\net8.0\BankingApp.csproj.CoreCompileInputs.cache
+Z:\New folder\UT011109-M.venukanan\BankingApp\BankingApp\obj\Debug\net8.0\BankingApp.sourcelink.json
+Z:\New folder\UT011109-M.venukanan\BankingApp\BankingApp\obj\Debug\net8.0\BankingApp.dll
+Z:\New folder\UT011109-M.venukanan\BankingApp\BankingApp\obj\Debug\net8.0\refint\BankingApp.dll
+Z:\New folder\UT011109-M.venukanan\BankingApp\BankingApp\obj\Debug\net8.0\BankingApp.pdb
+Z:\New folder\UT011109-M.venukanan\BankingApp\BankingApp\obj\Debug\net8.0\BankingApp.genruntimeconfig.cache
+Z:\New folder\UT011109-M.venukanan\BankingApp\BankingApp\obj\Debug\net8.0\ref\BankingApp.dll

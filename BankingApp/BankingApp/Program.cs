@@ -246,8 +246,10 @@
 //    }
 //}
 
+
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace BankingApp
 {
@@ -353,6 +355,12 @@ namespace BankingApp
             Console.Write("Enter Account Holder Name: ");
             string holderName = Console.ReadLine();
 
+            while (string.IsNullOrWhiteSpace(holderName) || int.TryParse(holderName, out _))
+            {
+                Console.WriteLine("Invalid name. Please enter letters only.");
+                holderName = Console.ReadLine();
+            }
+
             Console.Write("Enter Account Number: ");
             int accountNumber;
 
@@ -361,13 +369,7 @@ namespace BankingApp
                 Console.WriteLine("Invalid number. Enter again:");
             }
 
-            Console.Write("Enter Account Balance: ");
-            decimal balance;
-
-            while (!decimal.TryParse(Console.ReadLine(), out balance))
-            {
-                Console.WriteLine("Invalid amount. Enter again:");
-            }
+            decimal balance = 1000m;
 
             BankAccount account = new BankAccount(holderName, accountNumber, balance);
 
